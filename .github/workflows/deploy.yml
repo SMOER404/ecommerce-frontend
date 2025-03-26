@@ -5,8 +5,8 @@ on:
     branches: [ main ]
 
 jobs:
-  deploy:
-    name: Deploy
+  build-and-deploy:
+    name: Build and Deploy
     runs-on: ubuntu-latest
     if: github.ref == 'refs/heads/main'
     
@@ -22,7 +22,7 @@ jobs:
       - name: Install dependencies
         run: yarn install --frozen-lockfile
         
-      - name: Build
+      - name: Build packages
         run: yarn build
         
       - name: Deploy to Vercel
@@ -31,4 +31,5 @@ jobs:
           vercel-token: ${{ secrets.VERCEL_TOKEN }}
           vercel-org-id: ${{ secrets.ORG_ID}}
           vercel-project-id: ${{ secrets.PROJECT_ID}}
-          working-directory: ./apps/main-app 
+          working-directory: ./apps/main-app
+          vercel-args: '--prod' 
