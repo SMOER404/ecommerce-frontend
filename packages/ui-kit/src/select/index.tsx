@@ -13,7 +13,7 @@ export function Select<T extends string>({
   onChange,
   options,
   placeholder,
-  className = ''
+  className = '',
 }: SelectProps<T>) {
   return (
     <select
@@ -33,4 +33,4 @@ export function Select<T extends string>({
       ))}
     </select>
   );
-} 
+}

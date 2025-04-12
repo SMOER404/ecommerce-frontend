@@ -12,7 +12,7 @@ interface PaginatedResponse<T> {
 // Products
 export const getProducts = async (page = 1, limit = 10) => {
   const { data } = await apiClient.get<PaginatedResponse<Product>>(API_ENDPOINTS.products, {
-    params: { page, limit }
+    params: { page, limit },
   });
   return data;
 };
@@ -46,7 +46,7 @@ export const getBrandById = async (id: string) => {
 
 export const uploadBrandImage = async (id: string, imageUrl: string) => {
   const { data } = await apiClient.put<Brand>(`${API_ENDPOINTS.brands}/${id}/image`, {
-    imageUrl
+    imageUrl,
   });
   return data;
 };
@@ -54,7 +54,7 @@ export const uploadBrandImage = async (id: string, imageUrl: string) => {
 // Orders
 export const getOrders = async (page = 1, limit = 10) => {
   const { data } = await apiClient.get<PaginatedResponse<Order>>(API_ENDPOINTS.orders, {
-    params: { page, limit }
+    params: { page, limit },
   });
   return data;
 };
@@ -67,7 +67,7 @@ export const getOrderById = async (id: string) => {
 // Users
 export const getUsers = async (page = 1, limit = 10) => {
   const { data } = await apiClient.get<PaginatedResponse<User>>(API_ENDPOINTS.users, {
-    params: { page, limit }
+    params: { page, limit },
   });
   return data;
 };
@@ -75,4 +75,4 @@ export const getUsers = async (page = 1, limit = 10) => {
 export const getUserById = async (id: string) => {
   const { data } = await apiClient.get<User>(`${API_ENDPOINTS.users}/${id}`);
   return data;
-}; 
+};

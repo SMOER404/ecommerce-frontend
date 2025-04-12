@@ -12,4 +12,4 @@ export interface ProductFilters {
 export interface ProductSort {
   field: keyof Product;
   direction: 'asc' | 'desc';
-} 
+}

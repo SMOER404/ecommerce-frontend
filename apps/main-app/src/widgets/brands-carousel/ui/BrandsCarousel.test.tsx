@@ -4,24 +4,28 @@ import { BrandsCarousel } from './BrandsCarousel';
 
 // Мокаем функцию getBrands
 jest.mock('@/shared/api', () => ({
-  getBrands: jest.fn(() => Promise.resolve([
-    {
-      id: '1',
-      name: 'Nike',
-      description: 'Just Do It',
-      image: 'https://images.unsplash.com/photo-1556906781-9a412961c28c?w=800&auto=format&fit=crop&q=60',
-      createdAt: '2021-01-01',
-      updatedAt: '2021-01-01',
-    },
-    {
-      id: '2',
-      name: 'Adidas',
-      description: 'Impossible is Nothing',
-      image: 'https://images.unsplash.com/photo-1556905055-8f358a7a47b2?w=800&auto=format&fit=crop&q=60',
-      createdAt: '2021-01-01',
-      updatedAt: '2021-01-01',
-    },
-  ])),
+  getBrands: jest.fn(() =>
+    Promise.resolve([
+      {
+        id: '1',
+        name: 'Nike',
+        description: 'Just Do It',
+        image:
+          'https://images.unsplash.com/photo-1556906781-9a412961c28c?w=800&auto=format&fit=crop&q=60',
+        createdAt: '2021-01-01',
+        updatedAt: '2021-01-01',
+      },
+      {
+        id: '2',
+        name: 'Adidas',
+        description: 'Impossible is Nothing',
+        image:
+          'https://images.unsplash.com/photo-1556905055-8f358a7a47b2?w=800&auto=format&fit=crop&q=60',
+        createdAt: '2021-01-01',
+        updatedAt: '2021-01-01',
+      },
+    ]),
+  ),
 }));
 
 describe('BrandsCarousel', () => {
@@ -45,4 +49,4 @@ describe('BrandsCarousel', () => {
     expect(nikeLink).toHaveAttribute('href', '/brands/1');
     expect(adidasLink).toHaveAttribute('href', '/brands/2');
   });
-}); 
+});

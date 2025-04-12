@@ -8,9 +8,9 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import { getBrands } from '@poizon-market/api-client';
 import type { Brand } from '@poizon-market/api-client';
-import { Alert, AlertDescription } from '../../../shared/ui/alert';
-import { Button } from '../../../shared/ui/button';
-import { Skeleton } from '../../../shared/ui/skeleton';
+import { Alert, AlertDescription } from '@poizon-market/ui-kit';
+import { Button } from '@poizon-market/ui-kit';
+import { Skeleton } from '@poizon-market/ui-kit';
 import { AlertCircle } from 'lucide-react';
 import { BRAND_IMAGE_SIZE, CAROUSEL_SETTINGS } from '../lib/constants';
 import { BRAND_ROUTES } from '../config/routes';
@@ -32,16 +32,16 @@ export function BrandsCarousel() {
     } catch (err: any) {
       const isRateLimit = err?.response?.status === 429;
       const retryAfter = err?.retryAfter || 5;
-      setError(isRateLimit 
-        ? `Слишком много запросов. Пожалуйста, подождите ${retryAfter} секунд.` 
-        : 'Ошибка при загрузке брендов');
-      
+      setError(
+        isRateLimit
+          ? `Слишком много запросов. Пожалуйста, подождите ${retryAfter} секунд.`
+          : 'Ошибка при загрузке брендов',
+      );
+
       if (retryCount < maxRetries) {
-        setRetryCount(prev => prev + 1);
+        setRetryCount((prev) => prev + 1);
         // Используем время ожидания из ответа сервера или экспоненциальную задержку
-        const delay = isRateLimit 
-          ? retryAfter * 1000 
-          : baseDelay * Math.pow(2, retryCount);
+        const delay = isRateLimit ? retryAfter * 1000 : baseDelay * Math.pow(2, retryCount);
         setTimeout(loadBrands, delay);
       }
     } finally {
@@ -70,12 +70,7 @@ export function BrandsCarousel() {
         <AlertDescription>
           {error}
           {retryCount < maxRetries && (
-            <Button
-              variant="outline"
-              size="sm"
-              onClick={() => void loadBrands()}
-              className="ml-4"
-            >
+            <Button variant="outline" size="sm" onClick={() => void loadBrands()} className="ml-4">
               Повторить попытку
             </Button>
           )}
@@ -87,9 +82,7 @@ export function BrandsCarousel() {
   if (!Array.isArray(brands)) {
     return (
       <Alert>
-        <AlertDescription>
-          Ошибка формата данных
-        </AlertDescription>
+        <AlertDescription>Ошибка формата данных</AlertDescription>
       </Alert>
     );
   }
@@ -97,9 +90,7 @@ export function BrandsCarousel() {
   if (brands.length === 0) {
     return (
       <Alert>
-        <AlertDescription>
-          Бренды не найдены
-        </AlertDescription>
+        <AlertDescription>Бренды не найдены</AlertDescription>
       </Alert>
     );
   }
@@ -122,4 +113,4 @@ export function BrandsCarousel() {
       </Slider>
     </div>
   );
-} 
+}

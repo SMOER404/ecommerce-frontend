@@ -4,4 +4,4 @@ export interface BrandsState {
   brands: Brand[];
   isLoading: boolean;
   error: string | null;
-} 
+}

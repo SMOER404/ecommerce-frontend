@@ -1,4 +1,4 @@
-import { cn } from '@poizonmarket/utils';
+import { cn } from '@poizon-market/utils';
 
 interface TypographyProps extends React.HTMLAttributes<HTMLElement> {
   variant?: 'h1' | 'h2' | 'h3' | 'h4' | 'body1' | 'body2';
@@ -32,11 +32,8 @@ export const Typography = ({
   const Component = variantElements[variant];
 
   return (
-    <Component
-      className={cn(variantStyles[variant], className)}
-      {...props}
-    >
+    <Component className={cn(variantStyles[variant], className)} {...props}>
       {children}
     </Component>
   );
-}; 
+};

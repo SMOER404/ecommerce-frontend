@@ -1,17 +1,17 @@
-"use client"
+'use client';
 
-import * as React from "react"
-import Link from "next/link"
-import { usePathname } from "next/navigation"
-import { useAuth } from "@/shared/components/auth-provider"
-import { useStore } from "@/shared/hooks/use-store"
+import * as React from 'react';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+import { useAuth } from '@/shared/components/auth-provider';
+import { useStore } from '@/shared/hooks/use-store';
 
 export function Header() {
-  const pathname = usePathname()
-  const { user, logout } = useAuth()
-  const { cart } = useStore()
+  const pathname = usePathname();
+  const { user, logout } = useAuth();
+  const { cart } = useStore();
 
-  const cartItemsCount = cart.reduce((total, item) => total + item.quantity, 0)
+  const cartItemsCount = cart.reduce((total, item) => total + item.quantity, 0);
 
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
@@ -24,7 +24,7 @@ export function Header() {
             <Link
               href="/catalog"
               className={`transition-colors hover:text-foreground/80 ${
-                pathname === "/catalog" ? "text-foreground" : "text-foreground/60"
+                pathname === '/catalog' ? 'text-foreground' : 'text-foreground/60'
               }`}
             >
               Каталог
@@ -32,7 +32,7 @@ export function Header() {
             <Link
               href="/brands"
               className={`transition-colors hover:text-foreground/80 ${
-                pathname === "/brands" ? "text-foreground" : "text-foreground/60"
+                pathname === '/brands' ? 'text-foreground' : 'text-foreground/60'
               }`}
             >
               Бренды
@@ -40,7 +40,7 @@ export function Header() {
             <Link
               href="/about"
               className={`transition-colors hover:text-foreground/80 ${
-                pathname === "/about" ? "text-foreground" : "text-foreground/60"
+                pathname === '/about' ? 'text-foreground' : 'text-foreground/60'
               }`}
             >
               О нас
@@ -48,7 +48,7 @@ export function Header() {
             <Link
               href="/contact"
               className={`transition-colors hover:text-foreground/80 ${
-                pathname === "/contact" ? "text-foreground" : "text-foreground/60"
+                pathname === '/contact' ? 'text-foreground' : 'text-foreground/60'
               }`}
             >
               Контакты
@@ -56,10 +56,7 @@ export function Header() {
           </nav>
         </div>
         <div className="flex flex-1 items-center justify-end space-x-4">
-          <Link
-            href="/cart"
-            className="relative flex items-center space-x-2 text-sm font-medium"
-          >
+          <Link href="/cart" className="relative flex items-center space-x-2 text-sm font-medium">
             <span>Корзина</span>
             {cartItemsCount > 0 && (
               <span className="absolute -top-2 -right-2 flex h-5 w-5 items-center justify-center rounded-full bg-primary text-xs text-primary-foreground">
@@ -101,5 +98,5 @@ export function Header() {
         </div>
       </div>
     </header>
-  )
-} 
+  );
+}

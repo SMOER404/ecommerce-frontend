@@ -1,4 +1,5 @@
-import { cn } from '@poizonmarket/utils';
+import React from 'react';
+import { cn } from '@poizon-market/utils';
 
 interface LoadingProps extends React.HTMLAttributes<HTMLDivElement> {
   size?: 'sm' | 'md' | 'lg';
@@ -12,16 +13,13 @@ const sizeStyles = {
 
 export const Loading = ({ size = 'md', className, ...props }: LoadingProps) => {
   return (
-    <div
-      className={cn('flex items-center justify-center', className)}
-      {...props}
-    >
+    <div className={cn('flex items-center justify-center', className)} {...props}>
       <div
         className={cn(
           'animate-spin rounded-full border-4 border-primary border-t-transparent',
-          sizeStyles[size]
+          sizeStyles[size],
         )}
       />
     </div>
   );
-}; 
+};

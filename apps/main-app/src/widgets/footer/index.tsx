@@ -1,7 +1,7 @@
-"use client"
+'use client';
 
-import * as React from "react"
-import Link from "next/link"
+import * as React from 'react';
+import Link from 'next/link';
 
 export function Footer() {
   return (
@@ -17,7 +17,10 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/careers" className="text-sm text-muted-foreground hover:text-foreground">
+                <Link
+                  href="/careers"
+                  className="text-sm text-muted-foreground hover:text-foreground"
+                >
                   Вакансии
                 </Link>
               </li>
@@ -37,17 +40,26 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/delivery" className="text-sm text-muted-foreground hover:text-foreground">
+                <Link
+                  href="/delivery"
+                  className="text-sm text-muted-foreground hover:text-foreground"
+                >
                   Доставка
                 </Link>
               </li>
               <li>
-                <Link href="/payment" className="text-sm text-muted-foreground hover:text-foreground">
+                <Link
+                  href="/payment"
+                  className="text-sm text-muted-foreground hover:text-foreground"
+                >
                   Оплата
                 </Link>
               </li>
               <li>
-                <Link href="/returns" className="text-sm text-muted-foreground hover:text-foreground">
+                <Link
+                  href="/returns"
+                  className="text-sm text-muted-foreground hover:text-foreground"
+                >
                   Возврат
                 </Link>
               </li>
@@ -62,12 +74,18 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/privacy" className="text-sm text-muted-foreground hover:text-foreground">
+                <Link
+                  href="/privacy"
+                  className="text-sm text-muted-foreground hover:text-foreground"
+                >
                   Политика конфиденциальности
                 </Link>
               </li>
               <li>
-                <Link href="/cookies" className="text-sm text-muted-foreground hover:text-foreground">
+                <Link
+                  href="/cookies"
+                  className="text-sm text-muted-foreground hover:text-foreground"
+                >
                   Политика использования файлов cookie
                 </Link>
               </li>
@@ -77,17 +95,26 @@ export function Footer() {
             <h3 className="text-lg font-semibold">Контакты</h3>
             <ul className="mt-4 space-y-2">
               <li>
-                <Link href="/contact" className="text-sm text-muted-foreground hover:text-foreground">
+                <Link
+                  href="/contact"
+                  className="text-sm text-muted-foreground hover:text-foreground"
+                >
                   Связаться с нами
                 </Link>
               </li>
               <li>
-                <a href="tel:+78001234567" className="text-sm text-muted-foreground hover:text-foreground">
+                <a
+                  href="tel:+78001234567"
+                  className="text-sm text-muted-foreground hover:text-foreground"
+                >
                   8 (800) 123-45-67
                 </a>
               </li>
               <li>
-                <a href="mailto:info@poizonmarket.com" className="text-sm text-muted-foreground hover:text-foreground">
+                <a
+                  href="mailto:info@poizonmarket.com"
+                  className="text-sm text-muted-foreground hover:text-foreground"
+                >
                   info@poizonmarket.com
                 </a>
               </li>
@@ -99,5 +126,5 @@ export function Footer() {
         </div>
       </div>
     </footer>
-  )
-} 
+  );
+}

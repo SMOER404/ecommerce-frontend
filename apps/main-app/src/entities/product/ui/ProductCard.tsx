@@ -9,17 +9,14 @@ interface ProductCardProps {
   onClick?: (product: Product) => void;
 }
 
-export const ProductCard: React.FC<ProductCardProps> = observer(({ 
-  product, 
-  onClick 
-}) => {
+export const ProductCard: React.FC<ProductCardProps> = observer(({ product, onClick }) => {
   return (
-    <Card 
+    <Card
       className="cursor-pointer hover:shadow-lg transition-shadow"
       onClick={() => onClick?.(product)}
     >
-      <img 
-        src={product.image} 
+      <img
+        src={product.image}
         alt={product.name}
         className="w-full h-48 object-cover rounded-t-lg"
       />
@@ -30,4 +27,4 @@ export const ProductCard: React.FC<ProductCardProps> = observer(({
       </div>
     </Card>
   );
-}); 
+});

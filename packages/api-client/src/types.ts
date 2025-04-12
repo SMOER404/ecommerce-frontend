@@ -42,7 +42,7 @@ export interface Order {
     price: number;
   }>;
   total: number;
-  status: "pending" | "processing" | "shipped" | "delivered" | "cancelled";
+  status: 'pending' | 'processing' | 'shipped' | 'delivered' | 'cancelled';
   createdAt: string;
   updatedAt: string;
 }
@@ -51,7 +51,7 @@ export interface User {
   id: string;
   email: string;
   name: string;
-  role: "user" | "admin";
+  role: 'user' | 'admin';
   createdAt: string;
   updatedAt: string;
-} 
+}

@@ -1,0 +1,25 @@
+FROM node:20-alpine
+
+WORKDIR /app
+
+# Установка дополнительных инструментов для разработки
+RUN apk add --no-cache git
+
+# Копирование файлов конфигурации
+COPY package.json ./
+COPY packages/api-client/package.json ./packages/api-client/
+COPY packages/utils/package.json ./packages/utils/
+COPY packages/ui-kit/package.json ./packages/ui-kit/
+COPY apps/main-app/package.json ./apps/main-app/
+
+# Установка зависимостей
+RUN npm install
+
+# Копирование исходного кода
+COPY . .
+
+# Порт для разработки
+EXPOSE 3000
+
+# Команда для запуска в режиме разработки
+CMD ["npm", "run", "dev"] 

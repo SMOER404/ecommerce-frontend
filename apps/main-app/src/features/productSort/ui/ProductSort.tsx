@@ -11,27 +11,23 @@ const sortFields: { value: SortableFields; label: string }[] = [
   { value: 'name', label: 'По названию' },
   { value: 'price', label: 'По цене' },
   { value: 'createdAt', label: 'По дате создания' },
-  { value: 'stock', label: 'По наличию' }
+  { value: 'stock', label: 'По наличию' },
 ];
 
 export const ProductSortComponent = observer(() => {
   const { sort, setSort } = productStore;
 
-  const handleSortChange = (field: SortableFields) => {
+  const handleSortChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    const field = e.target.value as SortableFields;
     setSort({
       field,
-      direction: sort.direction === 'asc' ? 'desc' : 'asc'
+      direction: sort.direction === 'asc' ? 'desc' : 'asc',
     });
   };
 
   return (
     <div className="flex items-center gap-4">
-      <Select<SortableFields>
-        value={sort.field}
-        onChange={handleSortChange}
-        options={sortFields}
-        placeholder="Сортировать по"
-      />
+      <Select value={sort.field} onChange={handleSortChange} options={sortFields} />
       <button
         onClick={() => setSort({ ...sort, direction: sort.direction === 'asc' ? 'desc' : 'asc' })}
         className="px-3 py-1 border rounded hover:bg-gray-100"
@@ -40,4 +36,4 @@ export const ProductSortComponent = observer(() => {
       </button>
     </div>
   );
-}); 
+});

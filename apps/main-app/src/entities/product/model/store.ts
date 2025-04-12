@@ -10,12 +10,15 @@ class ProductStore {
     search: '',
     minPrice: 0,
     maxPrice: Infinity,
-    category: ''
+    category: '',
   };
   sort: ProductSort = {
     field: 'name',
-    direction: 'asc'
+    direction: 'asc',
   };
+  total = 0;
+  page = 1;
+  limit = 10;
 
   constructor() {
     makeAutoObservable(this);
@@ -41,14 +44,23 @@ class ProductStore {
     this.sort = sort;
   }
 
+  setPagination(total: number, page: number, limit: number) {
+    this.total = total;
+    this.page = page;
+    this.limit = limit;
+  }
+
   async fetchProducts() {
     try {
       this.setLoading(true);
       this.setError(null);
-      const products = await productApi.getProducts();
-      this.setProducts(products);
+      const response = await productApi.getProducts();
+      this.setProducts(response.data);
+      this.setPagination(response.total, response.page, response.limit);
     } catch (error) {
-      this.setError(error instanceof Error ? error.message : 'Произошла ошибка при загрузке продуктов');
+      this.setError(
+        error instanceof Error ? error.message : 'Произошла ошибка при загрузке продуктов',
+      );
     } finally {
       this.setLoading(false);
     }
@@ -57,25 +69,23 @@ class ProductStore {
   get filteredAndSortedProducts() {
     let result = [...this.products];
 
-    // Применяем фильтры
     if (this.filters.search) {
       const searchLower = this.filters.search.toLowerCase();
-      result = result.filter(product =>
-        product.name.toLowerCase().includes(searchLower) ||
-        product.description.toLowerCase().includes(searchLower)
+      result = result.filter(
+        (product) =>
+          product.name.toLowerCase().includes(searchLower) ||
+          product.description?.toLowerCase().includes(searchLower),
       );
     }
 
     if (this.filters.category) {
-      result = result.filter(product => product.category === this.filters.category);
+      result = result.filter((product) => product.categoryId === this.filters.category);
     }
 
-    result = result.filter(product =>
-      product.price >= this.filters.minPrice &&
-      product.price <= this.filters.maxPrice
+    result = result.filter(
+      (product) => product.price >= this.filters.minPrice && product.price <= this.filters.maxPrice,
     );
 
-    // Применяем сортировку
     result.sort((a, b) => {
       const aValue = a[this.sort.field];
       const bValue = b[this.sort.field];
@@ -95,4 +105,4 @@ class ProductStore {
   }
 }
 
-export const productStore = new ProductStore(); 
+export const productStore = new ProductStore();

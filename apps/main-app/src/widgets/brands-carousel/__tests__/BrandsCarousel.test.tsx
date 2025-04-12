@@ -6,13 +6,13 @@ const mockBrands = [
   { id: 2, name: 'Adidas', logo: 'https://placehold.co/200x200?text=Adidas' },
   { id: 3, name: 'Puma', logo: 'https://placehold.co/200x200?text=Puma' },
   { id: 4, name: 'Reebok', logo: 'https://placehold.co/200x200?text=Reebok' },
-  { id: 5, name: 'Under Armour', logo: 'https://placehold.co/200x200?text=UA' }
+  { id: 5, name: 'Under Armour', logo: 'https://placehold.co/200x200?text=UA' },
 ];
 
 const mockGetBrands = jest.fn();
 
 jest.mock('@poizon-market/api-client', () => ({
-  getBrands: () => mockGetBrands()
+  getBrands: () => mockGetBrands(),
 }));
 
 describe('BrandsCarousel', () => {
@@ -31,7 +31,7 @@ describe('BrandsCarousel', () => {
     render(<BrandsCarousel />);
 
     await waitFor(() => {
-      mockBrands.forEach(brand => {
+      mockBrands.forEach((brand) => {
         const images = screen.getAllByAltText(brand.name);
         expect(images.length).toBeGreaterThan(0);
       });
@@ -43,7 +43,7 @@ describe('BrandsCarousel', () => {
     render(<BrandsCarousel />);
 
     await waitFor(() => {
-      mockBrands.forEach(brand => {
+      mockBrands.forEach((brand) => {
         const images = screen.getAllByAltText(brand.name);
         expect(images.length).toBeGreaterThan(0);
       });
@@ -58,7 +58,7 @@ describe('BrandsCarousel', () => {
     render(<BrandsCarousel />);
 
     await waitFor(() => {
-      mockBrands.forEach(brand => {
+      mockBrands.forEach((brand) => {
         const images = screen.getAllByAltText(brand.name);
         expect(images.length).toBeGreaterThan(0);
       });
@@ -70,10 +70,10 @@ describe('BrandsCarousel', () => {
     render(<BrandsCarousel />);
 
     await waitFor(() => {
-      mockBrands.forEach(brand => {
+      mockBrands.forEach((brand) => {
         const images = screen.getAllByAltText(brand.name);
         expect(images.length).toBeGreaterThan(0);
       });
     });
   });
-}); 
+});

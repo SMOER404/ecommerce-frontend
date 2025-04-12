@@ -1,1 +1,1 @@
-export { getBrands } from '@poizon-market/api-client'; 
+export { getBrands } from '@poizon-market/api-client';

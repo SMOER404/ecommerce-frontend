@@ -1,5 +1,5 @@
 {
-  "name": "@poizonmarket/ui-kit",
+  "name": "@poizon-market/ui-kit",
   "version": "0.1.0",
   "private": true,
   "main": "./dist/index.js",
@@ -23,7 +23,7 @@
     "typescript": "^5.0.0"
   },
   "dependencies": {
-    "@poizonmarket/utils": "workspace:*",
+    "@poizon-market/utils": "workspace:*",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",
     "react": "^18.2.0",

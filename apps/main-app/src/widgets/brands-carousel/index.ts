@@ -4,4 +4,4 @@ export * from './api';
 export * from './lib';
 export * from './config';
 export { BrandsCarousel } from './ui/BrandsCarousel';
-export type { Brand } from '@poizon-market/api-client'; 
+export type { Brand } from '@poizon-market/api-client';

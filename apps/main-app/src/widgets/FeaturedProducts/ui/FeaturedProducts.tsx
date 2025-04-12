@@ -5,7 +5,7 @@ import { Card } from '@/shared/ui/card';
 import { Typography } from '@/shared/ui/typography';
 import { Loading } from '@/shared/ui/loading';
 import { getProducts } from '@/shared/api';
-import type { Product, Brand } from '@poizonmarket/api-client';
+import type { Product, Brand } from '@poizon-market/api-client';
 
 interface PaginatedResponse {
   data: (Product & { brand: Brand })[];
@@ -27,7 +27,7 @@ export const FeaturedProducts = () => {
       try {
         const response = await getProducts();
         console.log('Received products response:', response);
-        
+
         if (response && typeof response === 'object' && 'data' in response) {
           const paginatedResponse = response as unknown as PaginatedResponse;
           setProducts(paginatedResponse.data);
@@ -51,7 +51,9 @@ export const FeaturedProducts = () => {
   if (loading) {
     return (
       <section className="py-12">
-        <Typography variant="h2" className="mb-6">Популярные товары</Typography>
+        <Typography variant="h2" className="mb-6">
+          Популярные товары
+        </Typography>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
           <div className="flex justify-center py-12">
             <Loading size="lg" />
@@ -64,7 +66,9 @@ export const FeaturedProducts = () => {
   if (error) {
     return (
       <div className="text-center p-4">
-        <Typography variant="h3" className="text-red-500">{error}</Typography>
+        <Typography variant="h3" className="text-red-500">
+          {error}
+        </Typography>
       </div>
     );
   }
@@ -79,7 +83,9 @@ export const FeaturedProducts = () => {
 
   return (
     <section className="py-12">
-      <Typography variant="h2" className="mb-6">Популярные товары</Typography>
+      <Typography variant="h2" className="mb-6">
+        Популярные товары
+      </Typography>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
         {products.map((product) => (
           <Card key={product.id} className="overflow-hidden">
@@ -106,4 +112,4 @@ export const FeaturedProducts = () => {
       </div>
     </section>
   );
-}; 
+};

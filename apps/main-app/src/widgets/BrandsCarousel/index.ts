@@ -1,1 +1,1 @@
-export { BrandsCarousel } from './ui/BrandsCarousel'; 
+export { BrandsCarousel } from './ui/BrandsCarousel';

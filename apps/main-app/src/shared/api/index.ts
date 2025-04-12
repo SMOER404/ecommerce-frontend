@@ -1,3 +1,3 @@
 'use client';
 
-export { apiClient, getBrands, getProducts } from '@poizonmarket/api-client'; 
+export { apiClient, getBrands, getProducts } from '@poizon-market/api-client';

@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { cn } from '@poizonmarket/utils';
+import { cn } from '@poizon-market/utils';
 
 interface TypographyProps extends React.HTMLAttributes<HTMLElement> {
   variant?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'body1' | 'body2' | 'caption';
@@ -19,20 +19,31 @@ const variantClasses = {
   caption: 'text-xs',
 };
 
-export const Typography: React.FC<TypographyProps> = ({
-  variant = 'body1',
-  className,
-  children,
-  ...props
-}) => {
-  const Component = variant.startsWith('h') ? variant : 'p';
-  
-  return (
-    <Component
-      className={cn(variantClasses[variant], className)}
-      {...props}
-    >
-      {children}
-    </Component>
-  );
-}; 
+const variantElements = {
+  h1: 'h1',
+  h2: 'h2',
+  h3: 'h3',
+  h4: 'h4',
+  h5: 'h5',
+  h6: 'h6',
+  body1: 'p',
+  body2: 'p',
+  caption: 'span',
+} as const;
+
+export const Typography = React.forwardRef<HTMLElement, TypographyProps>(
+  ({ variant = 'body1', className, children, ...props }, ref) => {
+    const element = variantElements[variant];
+    return React.createElement(
+      element,
+      {
+        ref,
+        className: cn(variantClasses[variant], className),
+        ...props,
+      },
+      children,
+    );
+  },
+);
+
+Typography.displayName = 'Typography';

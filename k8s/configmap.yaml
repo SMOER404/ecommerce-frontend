@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: poizon-market-config
+  namespace: default
+data:
+  api_url: "http://api.poizon-market.com" 

@@ -1,0 +1,2 @@
+'use strict';var clsx=require('clsx'),tailwindMerge=require('tailwind-merge');function n(...r){return tailwindMerge.twMerge(clsx.clsx(r))}function i(r){return new Intl.NumberFormat("ru-RU",{style:"currency",currency:"RUB",minimumFractionDigits:0,maximumFractionDigits:0}).format(r)}var u=()=>"Hello from utils package";exports.cn=n;exports.example=u;exports.formatPrice=i;//# sourceMappingURL=index.js.map
+//# sourceMappingURL=index.js.map

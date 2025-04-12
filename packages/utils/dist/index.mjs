@@ -1,0 +1,2 @@
+import {clsx}from'clsx';import {twMerge}from'tailwind-merge';function n(...r){return twMerge(clsx(r))}function i(r){return new Intl.NumberFormat("ru-RU",{style:"currency",currency:"RUB",minimumFractionDigits:0,maximumFractionDigits:0}).format(r)}var u=()=>"Hello from utils package";export{n as cn,u as example,i as formatPrice};//# sourceMappingURL=index.mjs.map
+//# sourceMappingURL=index.mjs.map

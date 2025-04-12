@@ -13,9 +13,9 @@ apiClient.interceptors.response.use(
   (error) => {
     console.error('API Error:', error);
     return Promise.reject(error);
-  }
+  },
 );
 
 export * from './api';
 export * from './types';
-export * from './config'; 
+export * from './config';

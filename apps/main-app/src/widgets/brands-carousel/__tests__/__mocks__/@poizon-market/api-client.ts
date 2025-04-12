@@ -1,1 +1,1 @@
-export const getBrands = jest.fn(); 
+export const getBrands = jest.fn();

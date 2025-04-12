@@ -1,46 +1,46 @@
-"use client"
+'use client';
 
-import * as React from "react"
-import Link from "next/link"
-import { useStore } from "@/shared/hooks/use-store"
+import * as React from 'react';
+import Link from 'next/link';
+import { useStore } from '@/shared/hooks/use-store';
 
 const featuredProducts = [
   {
-    id: "1",
-    name: "Nike Air Max 270",
+    id: '1',
+    name: 'Nike Air Max 270',
     price: 12999,
-    image: "https://placehold.co/400x400/222222/222222",
-    category: "Обувь",
-    brand: "Nike",
+    image: 'https://placehold.co/400x400/222222/222222',
+    category: 'Обувь',
+    brand: 'Nike',
   },
   {
-    id: "2",
-    name: "Adidas Ultraboost 21",
+    id: '2',
+    name: 'Adidas Ultraboost 21',
     price: 15999,
-    image: "https://placehold.co/400x400/222222/222222",
-    category: "Обувь",
-    brand: "Adidas",
+    image: 'https://placehold.co/400x400/222222/222222',
+    category: 'Обувь',
+    brand: 'Adidas',
   },
   {
-    id: "3",
-    name: "Puma RS-X³ Puzzle",
+    id: '3',
+    name: 'Puma RS-X³ Puzzle',
     price: 11999,
-    image: "https://placehold.co/400x400/222222/222222",
-    category: "Обувь",
-    brand: "Puma",
+    image: 'https://placehold.co/400x400/222222/222222',
+    category: 'Обувь',
+    brand: 'Puma',
   },
   {
-    id: "4",
-    name: "Nike Dri-FIT Training",
+    id: '4',
+    name: 'Nike Dri-FIT Training',
     price: 3999,
-    image: "https://placehold.co/400x400/222222/222222",
-    category: "Одежда",
-    brand: "Nike",
+    image: 'https://placehold.co/400x400/222222/222222',
+    category: 'Одежда',
+    brand: 'Nike',
   },
-]
+];
 
 export function FeaturedProducts() {
-  const { addToCart } = useStore()
+  const { addToCart } = useStore();
 
   return (
     <div className="py-12">
@@ -83,5 +83,5 @@ export function FeaturedProducts() {
         ))}
       </div>
     </div>
-  )
-} 
+  );
+}

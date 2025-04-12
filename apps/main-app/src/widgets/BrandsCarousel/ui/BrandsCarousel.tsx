@@ -5,7 +5,7 @@ import { Card } from '@/shared/ui/card';
 import { Typography } from '@/shared/ui/typography';
 import { Loading } from '@/shared/ui/loading';
 import { getBrands } from '@/shared/api';
-import type { Brand } from '@poizonmarket/api-client';
+import type { Brand } from '@poizon-market/api-client';
 
 interface PaginatedResponse {
   items: Brand[];
@@ -25,7 +25,7 @@ export const BrandsCarousel = () => {
       try {
         const response = await getBrands();
         console.log('Received response:', response);
-        
+
         if (response && typeof response === 'object' && 'items' in response) {
           const paginatedResponse = response as unknown as PaginatedResponse;
           setBrands(paginatedResponse.items);
@@ -65,9 +65,7 @@ export const BrandsCarousel = () => {
         <Typography variant="h2" className="mb-6">
           Популярные бренды
         </Typography>
-        <div className="text-red-500 text-center py-12">
-          {error}
-        </div>
+        <div className="text-red-500 text-center py-12">{error}</div>
       </div>
     );
   }
@@ -78,9 +76,7 @@ export const BrandsCarousel = () => {
         <Typography variant="h2" className="mb-6">
           Популярные бренды
         </Typography>
-        <div className="text-gray-500 text-center py-12">
-          Бренды не найдены
-        </div>
+        <div className="text-gray-500 text-center py-12">Бренды не найдены</div>
       </div>
     );
   }
@@ -94,11 +90,7 @@ export const BrandsCarousel = () => {
         {brands.map((brand) => (
           <Card key={brand.id} className="p-4">
             <div className="aspect-square relative mb-4">
-              <img
-                src={brand.image}
-                alt={brand.name}
-                className="object-contain w-full h-full"
-              />
+              <img src={brand.image} alt={brand.name} className="object-contain w-full h-full" />
             </div>
             <Typography variant="h3" className="mb-2">
               {brand.name}
@@ -111,4 +103,4 @@ export const BrandsCarousel = () => {
       </div>
     </div>
   );
-}; 
+};
