@@ -13,9 +13,9 @@
     "analyze": "cross-env ANALYZE=true next build"
   },
   "dependencies": {
-    "@poizon-market/api-client": "workspace:*",
-    "@poizon-market/ui-kit": "workspace:*",
-    "@poizon-market/utils": "workspace:*",
+    "@poizonmarket/api-client": "workspace:*",
+    "@poizonmarket/ui-kit": "workspace:*",
+    "@poizonmarket/utils": "workspace:*",
     "@radix-ui/react-slot": "^1.0.2",
     "@types/react-slick": "^0.23.13",
     "class-variance-authority": "^0.7.0",
